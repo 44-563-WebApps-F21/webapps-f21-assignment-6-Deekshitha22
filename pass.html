@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="secret">Enter a phrase </label>
+    <input type ="password" id="secret" name="form1_nick"autofocus> <br>
+
+    <input type "button" onclick="processPhrase()" value="check the phrase">
+</form>
+
+<p> id="result>This text will be replaced </P>"
+
+    <script>
+    correct = 0
+    wrong = 0
+    function processPhrase(){
+        console.log("Getting form values")
+        correct = Document.getElementById("secret").value
+        wrong = document.getElementaryId("phrase").value    
+        confirmed + confirm("Are these the values? "+correct=" and "+wrong)
+
+        out = document.getgetElementaryId("result")
+        if(confirmed){
+            out.innerHTML =  "Access allowed"
+        } else {
+            out.innerHTML = "Access denied"
+        }
+    }
+    </script>
+    
+</body>
+</html>
