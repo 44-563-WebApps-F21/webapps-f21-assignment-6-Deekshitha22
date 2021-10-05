@@ -6,16 +6,16 @@
     <h2>Getting input</h2>
     <form>
         <label for="secret">Enter the secret phrase</label>
-        <input type="password" id="secret" name="form1_age" min=10 max=50 step=2 value="Let me in"> <br>
+        <input type="password" id="secret" name="form1_age" min=10 max=50 step=2 value="Let"> <br>
 
         <label for="phrase">Enter a phrase </label>
-        <input type="text" id="phrase" name="form1_nick" autofocus> <br>
+        <input type="text" id="pharse" name="form1_nick" autofocus> <br>
 
         <input type="button" onclick="processPhrase()" value="Check the phrase">
     </form>
 
 
-    <p> This text will be replaced </p>
+    <p id="result"> This text will be replaced </p>
 
     <div class="container">
         <h3>Animal Image</h3>
@@ -30,16 +30,24 @@
         image = document.getElementById("image");
         function processPhrase() {
             console.log("Getting form values")
-            correct = document.getElementById("secret").value
-            wrong = document.getElementById("phrase").value
-            confirmed = confirm("Are these the values? " + correct + " and " + wrong)
-
-            out = document.getElementById("result")
-            if (confirmed) {
-                out.innerHTML = "Access allowed"
+            var s = document.getElementById("secret").value;
+            var g = document.getElementById("pharse").value;
+            out = document.getElementById("result");
+            if (s == g) {
+                alert("Access allowed");
+                correct = correct + 1;
+                out.innerHTML = "correct" + correct + ",Wrong" + wrong;
             } else {
-                out.innerHTML = "Access denied"
+                alert("Access denied");
+                wrong = wrong + 1;
+                out.innerHTML = "correct " + correct + ",Wrong " + wrong;
             }
+            if( wrong ==3){
+                locked();
+            }
+        }
+        function locked(){
+            alert("account locked")
         }
 
         function rotateImage() {
